@@ -6,6 +6,7 @@ doc=
 doc/rdoc=
 doc/rdoc/index.html=
 gem=Build the gem file timesheets-0.0.1.gem
+migrate=
 package=Build all the packages
 pkg=
 pkg/timesheets-0.0.1=

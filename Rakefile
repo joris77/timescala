@@ -4,12 +4,15 @@
  
 
 require 'rubygems'
+require 'dm-core'
+require 'dm-migrations'
 require 'rake'
 require 'rake/clean'
 require 'rake/gempackagetask'
 require 'rake/rdoctask'
 require 'rake/testtask'
 require 'spec/rake/spectask'
+
 
 spec = Gem::Specification.new do |s|
   s.name = 'timesheets'
@@ -48,4 +51,17 @@ end
 Spec::Rake::SpecTask.new do |t|
   t.spec_files = FileList['spec/**/*.rb']
   t.libs << Dir["lib"]
+end
+
+task :migrate do
+  Dir['app/*.rb'].each{|file_name|
+  load file_name if file_name != 'main.rb'
+}
+  DataMapper.setup(:default, {
+    :adapter  => 'postgres',
+    :host     => 'localhost',
+    :username => 'joris77' ,
+    :password => 'password',
+    :database => 'timesheet_development'})
+  DataMapper.auto_migrate!
 end

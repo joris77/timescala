@@ -1,16 +1,15 @@
 <html>
     <head>
-        <script src="../../app/public/javascript/jquery.js"></script>
         <link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
         <script type="text/javascript" src="qunit.js"></script>
-
+        <script type="text/javascript" src="../../app/public/javascript/jquery.js"></script>
+        <script type="text/javascript" src="../../app/public/javascript/application.js"></script>
         <script>
             $(document).ready(function(){
 
-                test("test", function() {
-                    expect(2);
-                    equals( true, false, "failing test" );
-                    equals( true, true, "passing test" );
+                test("years", function() {
+                    var years_to_show = years()
+                    equals(years_to_show.length,30)
                 });
 
             });
