@@ -18,11 +18,6 @@ configure :development do
   DataMapper::Logger.new(STDOUT, :debug)
 end
 
-get '/hi' do
-  time = TimeRegistration.new :hours => 8.5, :description => 'blfddghsdfhfgabla'
-  time.save
-end
-
 get 'month/:month' do
   
 end

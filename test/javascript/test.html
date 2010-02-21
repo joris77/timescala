@@ -9,8 +9,14 @@
 
                 test("years", function() {
                     var years_to_show = years()
-                    equals(years_to_show.length,30)
+                    equal(years_to_show.length,30)
+                    equal(years_to_show[0], 1995)
                 });
+
+                test("options", function(){
+                    var options_result = options(['1','2'])
+                    equal(options_result, '<option>1</option><option>2</option>')
+                })
 
             });
         </script>

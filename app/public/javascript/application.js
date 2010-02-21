@@ -1,6 +1,6 @@
 
 var years = function(){
-    var curr_year = new Date().getYear();
+    var curr_year = new Date().getFullYear();
     var start_year = curr_year - 15
     var end_year = curr_year + 15
     years_to_return = []
@@ -9,4 +9,12 @@ var years = function(){
     }
     return years_to_return
 };
+
+var options = function(p_options){
+    ret_options = '';
+    for(var option in p_options){
+        ret_options = ret_options + '<option>' + p_options[option] + '</option>';
+    }
+    return ret_options
+}
 

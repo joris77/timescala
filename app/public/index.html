@@ -1,12 +1,25 @@
 <html>
-  <head>
-    <title>Timesheet</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script type="text/javascript" src="Scripts/jquery.js"></script>	
-  </head>
-  <body>
-      <select id="select_month">
+    <head>
+        <title>Timesheet</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="javascript/jquery.js"></script>
+        <script type="text/javascript" src="javascript/application.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#select_month').html(options(['1','2','3','4','5','6','7','8','9','10','11','12']))
+            });
+            $(document).ready(function() {
+                $('#select_year').html(options(years()))
+            });
+        </script>
+    </head>
+    <body>
+        <div id="select_month_panel">
+            <select id="select_month"/>
+            <select id="select_year"/>
+        </div>
+        <div id="sheet">
 
-      </select>
-  </body>
+        </div>
+    </body>
 </html>
