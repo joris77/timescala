@@ -2,8 +2,8 @@
 # and open the template in the editor.
 
 class Day
-  def initialize date
-    @date = date
+  def initialize year, week, day
+    @date = Date.commercial(year, week, day)
   end
 
   def week_day
@@ -41,7 +41,11 @@ class Day
     @date.day
   end
 
+  def to_s
+    @date.to_s
+  end
+
   def to_json(*a)
-    {'date' => date, 'hours' => hours}.to_json(*a)
+    {'day_of_month' => @date.day}.to_json(*a)
   end
 end

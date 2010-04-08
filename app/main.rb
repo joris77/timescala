@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'dm-core'
+require 'json'
 
 
 Dir['*.rb'].each{|file_name|
@@ -18,6 +19,8 @@ configure :development do
   DataMapper::Logger.new(STDOUT, :debug)
 end
 
-get 'month/:month' do
-  
+get '/timesheet/:year/:month' do
+  content_type :json
+  registrations = TimeRegistration.registrations_for_month(Month.new(params[:year].to_i,params[:month].to_i)).to_a
+  JSON.generate(registrations)
 end
