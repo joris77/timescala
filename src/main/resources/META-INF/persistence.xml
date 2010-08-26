@@ -1,0 +1,16 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+
+    <persistence-unit name="IBGVUnit" transaction-type="RESOURCE_LOCAL">
+        <class>com.wijlens.ibgv.InBeslagGenomenVoorwerp</class>
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <properties>
+          <property name="hibernate.dialect"
+        	     value="org.hibernate.dialect.MySQLInnoDBDialect"/>
+        	   <property name="hibernate.show_sql" value="false"/>
+        </properties>
+
+
+
+    </persistence-unit>
+
+</persistence>
