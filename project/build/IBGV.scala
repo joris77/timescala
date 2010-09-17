@@ -1,6 +1,6 @@
 import sbt._
 
-class IBVProject(info: ProjectInfo) extends DefaultWebProject(info)
+class IBGVProject(info: ProjectInfo) extends DefaultWebProject(info)
 {
   val mavenLocal = "Local Maven Repository" at "file://" + Path.userHome + "/.m2/repository"
   val springReleases = "Spring Releases Repository" at "http://maven.springframework.org/"
@@ -32,5 +32,10 @@ class IBVProject(info: ProjectInfo) extends DefaultWebProject(info)
 
   val testNG = "org.testng" % "testng" % "5.13.1" % "test"
 
+  val jacksonCore = "org.codehaus.jackson" % "jackson-core-lgpl" % "1.6.0"
+  val jacksonMapper = "org.codehaus.jackson" % "jackson-mapper-lgpl" % "1.6.0"
 
+       val servletApi = "javax.servlet" % "servlet-api" % "2.5" % "provided"
+
+  val urlRewrite = "org.tuckey" % "urlrewritefilter" % "3.1.0"
 }

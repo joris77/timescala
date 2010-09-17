@@ -4,6 +4,8 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans 
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
@@ -12,15 +14,21 @@
         http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
        http://www.springframework.org/schema/aop
-       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
-
-    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="emf"/>
-        <property name="dataSource" ref="dataSource"/>        
-      </bean>
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+        >
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
-    
+
+    <context:annotation-config/>
+
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -29,7 +37,7 @@
         <property name="password" value="root"/>
     </bean>
 
-    <bean id="emf"
+    <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="loadTimeWeaver">
@@ -44,8 +52,40 @@
 
     </bean>
 
-    <context:annotation-config/>
+     <bean class="com.wijlens.ibgv.infrastructure.ApplicationContext"/>
 
-    <bean class="com.wijlens.ibgv.ApplicationContext"/>
+    <!-- MVC -->
+
+    <mvc:annotation-driven/>
+
+    <context:component-scan base-package="com.wijlens.ibgv.application"/>
+
+    <!--<bean id="jsonHttpMessageConverter"
+          class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+                      -->
+
+    <bean id="formHttpMessageConverter"
+          class="org.springframework.http.converter.FormHttpMessageConverter"/>
+
+    <bean id="stringHttpMessageConverter"
+           class="org.springframework.http.converter.StringHttpMessageConverter"/>
+    
+
+    <bean
+            class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <util:list id="beanList">
+                <ref bean="formHttpMessageConverter"/>
+                <ref bean="stringHttpMessageConverter"/>
+            </util:list>
+        </property>
+    </bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/"/>
+		<property name="suffix" value=".html"/>
+	</bean>
+
+
+
 
 </beans>
