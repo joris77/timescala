@@ -1,14 +1,19 @@
 import sbt._
 
-class IBGVProject(info: ProjectInfo) extends DefaultWebProject(info)
+class Project(info: ProjectInfo) extends DefaultWebProject(info)
 {
+  // Repos
+
   val mavenLocal = "Local Maven Repository" at "file://" + Path.userHome + "/.m2/repository"
   val springReleases = "Spring Releases Repository" at "http://maven.springframework.org/"
   val jboss = "JBoss repository" at "http://repository.jboss.org/nexus/content/groups/public-jboss/"
 
 
+  // Dependencies
 
   val jetty7 = "org.eclipse.jetty" % "jetty-webapp" % "7.0.2.v20100331" % "test"
+  val jettyJsp = "org.mortbay.jetty" % "jetty-jsp-2.1" % "7.0.2.v20100331" % "test"
+
 
   val commonsDbcp = "commons-dbcp" % "commons-dbcp" % "1.4"
 
@@ -35,7 +40,9 @@ class IBGVProject(info: ProjectInfo) extends DefaultWebProject(info)
   val jacksonCore = "org.codehaus.jackson" % "jackson-core-lgpl" % "1.6.0"
   val jacksonMapper = "org.codehaus.jackson" % "jackson-mapper-lgpl" % "1.6.0"
 
-       val servletApi = "javax.servlet" % "servlet-api" % "2.5" % "provided"
+  val servletApi = "javax.servlet" % "servlet-api" % "2.5" % "provided"
+
+  val jodaTime = "joda-time" % "joda-time" % "1.6.1"
 
   val urlRewrite = "org.tuckey" % "urlrewritefilter" % "3.1.0"
 }

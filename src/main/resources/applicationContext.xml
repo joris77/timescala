@@ -52,37 +52,17 @@
 
     </bean>
 
-     <bean class="com.wijlens.ibgv.infrastructure.ApplicationContext"/>
+     <bean class="com.wijlens.project.infrastructure.ApplicationContext"/>
 
     <!-- MVC -->
 
     <mvc:annotation-driven/>
 
-    <context:component-scan base-package="com.wijlens.ibgv.application"/>
+    <context:component-scan base-package="com.wijlens.project.application"/>
 
-    <!--<bean id="jsonHttpMessageConverter"
-          class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
-                      -->
-
-    <bean id="formHttpMessageConverter"
-          class="org.springframework.http.converter.FormHttpMessageConverter"/>
-
-    <bean id="stringHttpMessageConverter"
-           class="org.springframework.http.converter.StringHttpMessageConverter"/>
-    
-
-    <bean
-            class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-        <property name="messageConverters">
-            <util:list id="beanList">
-                <ref bean="formHttpMessageConverter"/>
-                <ref bean="stringHttpMessageConverter"/>
-            </util:list>
-        </property>
-    </bean>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/"/>
-		<property name="suffix" value=".html"/>
+		<property name="suffix" value=".jsp"/>
 	</bean>
 
 

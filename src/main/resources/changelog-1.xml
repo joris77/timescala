@@ -6,7 +6,7 @@
         <dbms type="mysql"/>
     </preConditions>
     <changeSet id="1" author="JW">
-        <createTable tableName="sealbags">
+        <createTable tableName="entity">
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

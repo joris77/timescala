@@ -1,0 +1,3 @@
+[submodule "ibgv"]
+	path = ibgv
+	url = git@github.com:joris77/ibgv.git

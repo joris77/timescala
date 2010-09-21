@@ -5,6 +5,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Hoi hoi bla bla vdbghdfhfg
+Hoi hoi bla bla 
 </body>
 </html>

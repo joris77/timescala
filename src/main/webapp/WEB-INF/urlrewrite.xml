@@ -14,8 +14,8 @@
 		<to>/styles/$1</to>
 	</rule>
     <rule>
-        <from>/*\.html</from>
-        <to>/$1.html</to>
+        <from>/*\.jsp</from>
+        <to>/$1.jsp</to>
     </rule>
     <rule>
         <from>/**</from>

@@ -1,12 +1,12 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
 
-    <persistence-unit name="IBGVUnit" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="PersistenceUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <properties>
           <property name="hibernate.dialect"
         	     value="org.hibernate.dialect.MySQLInnoDBDialect"/>
         	   <property name="hibernate.show_sql" value="false"/>
-            <property name="hibernate.ejb.interceptor" value="com.wijlens.ibgv.infrastructure.DependencyInjectionInterceptor" />
+            <property name="hibernate.ejb.interceptor" value="com.wijlens.project.infrastructure.DependencyInjectionInterceptor" />
 
         </properties>
 

@@ -1,7 +1,7 @@
 <web-app>
 
     <servlet>
-        <servlet-name>IBGV</servlet-name>
+        <servlet-name>ApplicationDispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
         <init-param>
@@ -11,7 +11,7 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>IBGV</servlet-name>
+        <servlet-name>ApplicationDispatcherServlet</servlet-name>
         <url-pattern>/app/*</url-pattern>
     </servlet-mapping>
 

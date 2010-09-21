@@ -1,6 +1,6 @@
-package com.wijlens.ibgv
+package com.wijlens.project
 
-import model.{SealBag, SealBagRepository}
+import model.{SealBag, Repository}
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import org.testng.Assert
@@ -17,7 +17,7 @@ import org.testng.annotations.Test
 @ContextConfiguration(locations = Array("classpath:/applicationContext.xml"))
 class VoorwerpenRepositoryTest extends AbstractTransactionalTestNGSpringContextTests{
 
-  @Autowired var sealBagRepository : SealBagRepository = _
+  @Autowired var sealBagRepository : Repository = _
 
   @Test
   def vindEnCreeerVoorwerpen {

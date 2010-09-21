@@ -1,4 +1,4 @@
-package com.wijlens.ibgv.infrastructure
+package com.wijlens.project.infrastructure
 
 import java.io.Serializable
 import org.hibernate.`type`.Type

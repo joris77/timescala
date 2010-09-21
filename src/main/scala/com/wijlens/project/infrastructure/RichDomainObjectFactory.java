@@ -1,10 +1,9 @@
-package com.wijlens.ibgv.infrastructure;
+package com.wijlens.project.infrastructure;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
-import org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory;
 
 public class RichDomainObjectFactory implements BeanFactoryAware {
 
