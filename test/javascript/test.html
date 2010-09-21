@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
+        <script type="text/javascript" src="qunit.js"></script>
+        <script type="text/javascript" src="../../app/public/javascript/jquery.js"></script>
+        <script type="text/javascript" src="../../app/public/javascript/application.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                test("years", function() {
+                    var years_to_show = years()
+                    equal(years_to_show.length,30)
+                    equal(years_to_show[0], 1995)
+                });
+
+                test("options", function(){
+                    var options_result = options(['1','2'])
+                    equal(options_result, '<option>1</option><option>2</option>')
+                })
+
+            });
+        </script>
+
+    </head>
+    <body>
+        <h1 id="qunit-header">QUnit example</h1>
+        <h2 id="qunit-banner"></h2>
+        <h2 id="qunit-userAgent"></h2>
+        <ol id="qunit-tests"></ol>
+    </body>
+</html>
+
